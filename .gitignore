@@ -70,3 +70,7 @@ htmlcov/
 
 # Secrets
 .env.local
+
+# Blog post — private draft, do not publish
+BLOG_POST.md
+figures/
