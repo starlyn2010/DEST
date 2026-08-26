@@ -142,7 +142,7 @@ pytest -q
 ```bibtex
 @misc{dest2026,
   title  = {DEST: Deterministic Collatz Sampling for Reproducible Deep Learning},
-  author = {Starlyn et al.},
+  author = {Rosario, Starlyn Eliezer},
   year   = {2026},
   url    = {https://github.com/starlyn2010/DEST}
 }
@@ -156,7 +156,7 @@ MIT — see [LICENSE](LICENSE).
 
 ## Acknowledgments
 
-Built at MIT-affiliated research. Compute provided by Google Colab (Tesla T4).
+Built independently by a high-school student in the Dominican Republic using Google Colab (Tesla T4). No institutional affiliation.
 
 ## Contact
 
