@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+title: "DEST: Deterministic Collatz Sampling for Reproducible Deep Learning"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: "Starlyn"
+    given-names: "—"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+license: MIT
+repository-code: "https://github.com/starlyn2010/DEST"
+url: "https://github.com/starlyn2010/DEST"
+keywords:
+  - deep-learning
+  - reproducibility
+  - collatz
+  - deterministic-sampling
+  - pytorch
+version: "1.0.0"
+date-released: 2026-08-25

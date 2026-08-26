@@ -1,0 +1,120 @@
+{
+    "experiment_id": "Exp_C",
+    "mode": "deterministic_dropout",
+    "seed": 42,
+    "train_losses": [
+        0.7352980471054713,
+        0.18006265634298324,
+        0.12069229666392009
+    ],
+    "val_losses": [
+        0.19286257100105286,
+        0.10513111336032549,
+        0.08778851226965587
+    ],
+    "test_losses": [
+        0.19730708875656128,
+        0.10407803607955575,
+        0.07860328073948622
+    ],
+    "train_accs": [
+        76.32291666666666,
+        94.45208333333333,
+        96.21875
+    ],
+    "val_accs": [
+        94.20833333333334,
+        96.72500000000001,
+        97.25
+    ],
+    "test_accs": [
+        94.05,
+        96.72,
+        97.5
+    ],
+    "generalization_gaps": [
+        -17.72708333333334,
+        -2.2679166666666646,
+        -1.28125
+    ],
+    "f1_per_epoch": [
+        0.9401852887108723,
+        0.9670154770202251,
+        0.9748978417407386
+    ],
+    "precision_per_epoch": [
+        0.9410015969635867,
+        0.9674217160044432,
+        0.9751270701613173
+    ],
+    "recall_per_epoch": [
+        0.9402571029171589,
+        0.9668869708673288,
+        0.9748300631210716
+    ],
+    "final_test_acc": 97.5,
+    "final_test_loss": 0.07860328073948622,
+    "final_f1": 0.9748978417407386,
+    "final_precision": 0.9751270701613173,
+    "final_recall": 0.9748300631210716,
+    "final_ece": 3.4742176891967653,
+    "final_generalization_gap": -1.28125,
+    "convergence_epoch_90": 1,
+    "convergence_epoch_95": 2,
+    "best_test_acc": 97.5,
+    "best_test_epoch": 3,
+    "sampler_time_per_epoch": [
+        4.291534423828125e-06,
+        2.002716064453125e-05,
+        6.198883056640625e-06
+    ],
+    "train_time_per_epoch": [
+        11.839217185974121,
+        11.957364082336426,
+        11.779629468917847
+    ],
+    "eval_time_per_epoch": [
+        5.218683481216431,
+        4.4225544929504395,
+        4.4287543296813965
+    ],
+    "total_time_per_epoch": [
+        17.05790901184082,
+        16.379942655563354,
+        16.208394050598145
+    ],
+    "total_runtime_seconds": 49.646260499954224,
+    "samples_per_second": [
+        4054.3221098152867,
+        4014.2626476437417,
+        4074.8310570085864
+    ],
+    "gpu_memory_peak_mb": 39.40576171875,
+    "train_loss_variance": 0.07661682302660183,
+    "test_acc_variance": 2.182200000000003,
+    "config_snapshot": {
+        "execution_mode": "DEBUG",
+        "dataset": "MNIST",
+        "model": "SmallCNN",
+        "batch_size": 256,
+        "epochs": 3,
+        "lr": 0.01,
+        "optimizer": "SGD",
+        "weight_decay": 0.0001,
+        "n_seeds": 3,
+        "seeds": [
+            42,
+            43,
+            44
+        ],
+        "val_fraction": 0.2,
+        "output_dir": "./dest_results_debug",
+        "experiment_name": "DEST_Ablation_Debug",
+        "device": "auto",
+        "num_workers": 0,
+        "save_checkpoints": true,
+        "verbose": true
+    },
+    "timestamp": "2026-08-06T18:53:54Z",
+    "status": "COMPLETE"
+}

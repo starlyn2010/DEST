@@ -1,0 +1,74 @@
+{
+    "experiments": {
+        "Exp_A": {
+            "completed_seeds": [
+                42,
+                43,
+                44
+            ],
+            "status": "COMPLETED"
+        },
+        "Exp_C": {
+            "completed_seeds": [
+                42,
+                43,
+                44
+            ],
+            "status": "COMPLETED"
+        },
+        "Exp_F": {
+            "completed_seeds": [
+                42,
+                43,
+                44
+            ],
+            "status": "COMPLETED"
+        },
+        "Exp_G": {
+            "completed_seeds": [
+                42,
+                43,
+                44
+            ],
+            "status": "COMPLETED"
+        },
+        "Exp_H": {
+            "completed_seeds": [
+                42,
+                43,
+                44
+            ],
+            "status": "COMPLETED"
+        },
+        "Exp_I": {
+            "completed_seeds": [
+                42,
+                43,
+                44
+            ],
+            "status": "COMPLETED"
+        },
+        "Exp_E": {
+            "completed_seeds": [
+                42,
+                43,
+                44
+            ],
+            "status": "COMPLETED"
+        },
+        "Exp_J_Sweep": {
+            "completed_seeds": [
+                42,
+                43,
+                44
+            ],
+            "status": "IN_PROGRESS"
+        }
+    },
+    "system_info": {
+        "timestamp": "2026-08-06T18:50:26.581922",
+        "cuda_available": true,
+        "gpu_name": "Tesla T4",
+        "pytorch_version": "2.11.0+cu128"
+    }
+}
