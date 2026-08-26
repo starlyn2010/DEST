@@ -72,5 +72,5 @@ htmlcov/
 .env.local
 
 # Blog post — private draft, do not publish
-BLOG_POST.md
+BLOG_POST*.md
 figures/
