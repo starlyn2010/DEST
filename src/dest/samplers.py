@@ -229,6 +229,40 @@ class CollatzSweepSampler(Sampler):
     def __len__(self):
         return self.num_samples
 
+class HaltonPermutationSampler(Sampler):
+    def __init__(self, data_source, seed=42):
+        super().__init__()
+        self.num_samples = len(data_source)
+        self.seed = seed
+        self.epoch = 0
+
+    def set_epoch(self, epoch):
+        self.epoch = epoch
+
+    def __iter__(self):
+        current_seed = self.seed + self.epoch
+        try:
+            from scipy.stats import qmc
+            sampler = qmc.Halton(d=1, scramble=True, seed=current_seed)
+            halton_points = sampler.random(n=self.num_samples).flatten()
+            indices = np.argsort(halton_points).tolist()
+        except ImportError:
+            # fallback LCG distinto de Sobol
+            a = 1103515245
+            c = 12345
+            m = 2**31
+            val = current_seed * 7919 + 104729
+            sequence = []
+            for _ in range(self.num_samples):
+                val = (a * val + c) % m
+                sequence.append(val)
+            indices = np.argsort(sequence).tolist()
+        return iter(indices)
+
+    def __len__(self):
+        return self.num_samples
+
+
 class SamplerFactory:
     @staticmethod
     def get_sampler(sampler_name: str, data_source, seed: int = 42, total_epochs: int = 15, alpha_fixed: float = 0.5):
@@ -239,6 +273,8 @@ class SamplerFactory:
             return SequentialBaseSampler(data_source)
         elif name in ['sobol', 'deterministic']:
             return SobolPermutationSampler(data_source, seed=seed)
+        elif name in ['halton']:
+            return HaltonPermutationSampler(data_source, seed=seed)
         elif name in ['collatz_v1', 'collatzv1']:
             return CollatzFix1Sampler(data_source, seed=seed)
         elif name in ['collatz_v2', 'collatzv2']:
