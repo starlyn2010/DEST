@@ -92,7 +92,11 @@ class CollatzFix1Sampler(Sampler):
             for _ in range(self.K):
                 x = self._collatz_step(x, self.c)
             values[i] = x
-        indices = np.argsort(values).tolist()
+        # FIX 2026-08-28: romper empates deterministas (antes 98% duplicados, 715 únicos/45k)
+        # values colapsa a ~700 únicos → argsort estable 98% secuencial. Usamos lexsort con tie-breaker determinista por seed.
+        tie_rng = np.random.RandomState(self.seed * 1000003 + self.epoch * 9176 + 999)
+        tie = tie_rng.rand(self.num_samples)
+        indices = np.lexsort((tie, values)).tolist()
         return iter(indices)
 
     def __len__(self):
@@ -179,7 +183,10 @@ class CollatzFix3Sampler(Sampler):
             mixed = (1.0 - alpha) * norm_values + alpha * noise
             indices = np.argsort(mixed).tolist()
         else:
-            indices = np.argsort(norm_values).tolist()
+            # FIX 2026-08-28: romper empates (98% duplicados) incluso con alpha=0
+            tie_rng = np.random.RandomState(self.seed * 1000003 + self.epoch * 9176 + 777)
+            tie = tie_rng.rand(self.num_samples)
+            indices = np.lexsort((tie, norm_values)).tolist()
         return iter(indices)
 
     def __len__(self):
