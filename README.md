@@ -6,7 +6,13 @@
 [![Paper](https://img.shields.io/badge/paper-arXiv-red.svg)](#citing)
 [![Results](https://img.shields.io/badge/results-176%20runs-brightgreen.svg)](#results)
 
-**Deterministic samplers based on Collatz dynamics that match or beat stochastic training in accuracy while cutting seed-to-seed variance by up to 80%.**
+> ⚠️ **RESULTS UPDATED — see [DEPRECATED.md](DEPRECATED.md)**  
+> Original CIFAR-10 +0.76pp claim was a **bug artifact** (98% duplicates in Collatz sampler).  
+> **Fix applied** (commit `fed2d3c`): lexsort tie-breaker → 0% duplicates.  
+> **Clean fix results (seeds 300–309):** V3 −0.16pp vs stochastic (p=0.53, d=−0.21).  
+> **No robust superiority** of V3 over stochastic. See [DEPRECATED.md](DEPRECATED.md) for full details.
+
+**Deterministic samplers based on Collatz dynamics with entropy scheduling for reproducible deep learning.**
 
 > Same seed → same weights, same split, same dropout. The *only* difference between methods is the order in which training samples are presented.
 
@@ -82,7 +88,9 @@ All notebooks in `notebooks/` are **standalone**: they embed `src/dest/` as base
 
 ## Results
 
-### CIFAR-10 — Fully Complete (n=20/method)
+### ⚠️ CIFAR-10 Results — Original (n=20/method, seeds 42–61) — **DEPRECATED**
+
+> These results used the **buggy Collatz sampler** (98% duplicates in permutation). See [DEPRECATED.md](DEPRECATED.md).
 
 | Sampler | Mean ± SD | Median | Range | Δ vs stochastic |
 |---|---|---|---|---|
@@ -92,9 +100,18 @@ All notebooks in `notebooks/` are **standalone**: they embed `src/dest/` as base
 | stochastic | 85.11 ± 0.90 | 85.28 | 82.81–86.41 | — |
 | collatz_v1 | 84.83 ± 1.35 | 85.05 | 82.24–86.91 | −0.28 |
 
-Paired by seed: v3 − stochastic = **+0.758 pp, *t*=3.47, wins 15/20**.
+> ⚠️ **DEPRECATED:** These runs used the buggy Collatz sampler (98% duplicates). The +0.76pp was an artifact of the bug + offset luck. See [DEPRECATED.md](DEPRECATED.md).
 
-Version ladder: v1 < v2 < v3 (monotonic).
+### ✅ CIFAR-10 — Clean Fix (n=10/method, seeds 300–309, Fix Applied)
+
+| Sampler | Mean ± SD | Range | Δ vs stochastic | *p* (Welch) | Cohen's *d* |
+|---|---|---|---|---|---|
+| **stochastic** | **85.27 ± 1.12** | 83.12–86.45 | — | — | — |
+| **collatz_v3 (fix)** | **85.10 ± 0.85** | 84.10–86.67 | **−0.16 pp** | **0.53** | **−0.21** |
+
+> **Clean fix result:** V3 does **not** beat stochastic (−0.16pp, p=0.53, d=−0.21). The original +0.76pp was a bug artifact.
+
+### CIFAR-100 — Current (n=10/method, seeds 42–51)
 
 ### CIFAR-100 — Current (n=10/method, seeds 42–51)
 
