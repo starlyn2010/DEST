@@ -1,0 +1,20 @@
+{
+  "alphas_tested": [
+    0.1,
+    0.3,
+    0.5,
+    0.7,
+    0.9
+  ],
+  "seeds": [
+    300,
+    301,
+    302
+  ],
+  "datasets": [
+    "CIFAR10",
+    "CIFAR100"
+  ],
+  "fix": "lexsort tie-breaker (fed2d3c)",
+  "note": "Clean fix \u2014 no 98% duplicate bug"
+}

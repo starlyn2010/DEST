@@ -1,0 +1,26 @@
+{
+    "experiments": {
+        "CIFAR10_alpha0.7_collatz_sweep": {
+            "completed_seeds": [
+                300,
+                301,
+                302
+            ],
+            "status": "IN_PROGRESS"
+        },
+        "CIFAR10_alpha0.7_stochastic": {
+            "completed_seeds": [
+                300,
+                301,
+                302
+            ],
+            "status": "IN_PROGRESS"
+        }
+    },
+    "system_info": {
+        "timestamp": "2026-09-01T00:08:20.551619",
+        "cuda_available": true,
+        "gpu_name": "Tesla T4",
+        "pytorch_version": "2.10.0+cu128"
+    }
+}
